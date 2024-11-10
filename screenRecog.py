@@ -10,8 +10,6 @@ Noise Reduction: Apply blur or denoise filters, if necessary, to make text clear
 3. Use OCR for Text Extraction
 Pytesseract: pytesseract is a popular Python wrapper for Tesseract OCR, an open-source OCR engine.
 Install Tesseract OCR (an external dependency) and configure pytesseract to read the image text.
-4. Translate the Text (Optional)
-For non-English text, use a translation API such as Google Translate API or a library like translate-python to convert the extracted text to the desired language.
 '''
 
 # source myenv/bin/activate
