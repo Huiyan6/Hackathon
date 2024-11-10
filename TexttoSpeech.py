@@ -1,7 +1,6 @@
 from gtts import gTTS
 import pygame
 import time 
-import fitz  
 #import keyboard
 
 def split_text_into_chunks(text, max_length=500):
@@ -20,7 +19,7 @@ def split_text_into_chunks(text, max_length=500):
         chunks.append(" ".join(current_chunk))
     return chunks
 
-pdf_path = input("Enter the path to your PDF file: ") 
+"""pdf_path = input("Enter the path to your PDF file: ") 
 try:
     doc = fitz.open(pdf_path)
 except Exception as e:
@@ -34,13 +33,11 @@ for page_num in range(doc.page_count):
     print(texted)
     print("\n" + "-"*50 + "\n") 
     texts += texted + ' '  
-doc.close()
+doc.close()"""
 
-text_chunks = split_text_into_chunks(texts)
-language = 'en'
 pygame.mixer.init()
 
-def playAudio():
+def playAudio(filename):
     pygame.mixer.music.load(filename)
     pygame.mixer.music.play()
 
@@ -50,19 +47,4 @@ def pauseAudio():
 def resumeAudio():
     pygame.mixer.music.unpause() 
 
-for i, chunk in enumerate(text_chunks): 
-    textToRead = gTTS(text=chunk, lang=language, slow=False)
-    filename = f'text_chunk_{i}.mp3'
-    textToRead.save(filename)
-
-    playAudio()
-    time.sleep(4)
-    pauseAudio()
-    print("Paused for 2 seconds...")
-    time.sleep(2)
-    resumeAudio()
-    print("Resumed playing...")
-
-    while pygame.mixer.music.get_busy():
-        pygame.time.Clock().tick(10)
 

@@ -1,5 +1,5 @@
 # source myenv/bin/activate
-import mss 
+import mss
 import time
 import numpy as np 
 import cv2 
@@ -34,11 +34,13 @@ class getImage:
 
             processedImage = self.convertToCV2(img)
             extractedText = self.convertOCR(processedImage)
-            print("Extracted Text:", extractedText)
+            #print("Extracted Text:", extractedText)
 
             cv2.imshow("Processed Image", processedImage)
             cv2.waitKey(0)
             cv2.destroyAllWindows()
+            return extractedText
 
 image = getImage(0, 0, 1280, 800)
-image.screenshot()
+text = image.screenshot()
+
