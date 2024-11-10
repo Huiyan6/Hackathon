@@ -13,7 +13,6 @@ Install Tesseract OCR (an external dependency) and configure pytesseract to read
 '''
 
 # source myenv/bin/activate
-
 import mss 
 import time
 import numpy as np 
@@ -57,40 +56,3 @@ class getImage:
 
 image = getImage(0, 0, 1280, 800)
 image.screenshot()
-
-'''
-#pytesseract.pytesseract.tesseract_cmd = "/opt/homebrew/bin/tesseract"
-
-def screenshot(x,y,width,height):
-    with mss.mss() as sct:
-        monitor = {"top": y, "left": x, "width": width, "height": height}
-        time.sleep(3)
-        screenshot = sct.grab(monitor)
-        img = np.array(screenshot)
-
-       # cv2.imshow("Captured Panel", img)
-        #cv2.waitKey(0)
-       # cv2.destroyAllWindows()
-
-    processedImage = convertToCV2(img)
-    extractedText = convertOCR(processedImage)
-    print("Extracted Text:", extractedText)
-
-    cv2.imshow("Processed Image", processedImage)
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
-
-def convertToCV2(panel):
-    grayImage = cv2.cvtColor(panel, cv2.COLOR_BGR2GRAY)
-    binaryImage = cv2.adaptiveThreshold(
-    grayImage, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 11, 2)
-
-    denoisedImage = cv2.GaussianBlur(binaryImage, (5, 5), 0) 
-    cv2.imwrite("processed_panel.png", denoisedImage)  # Save if needed
-    return denoisedImage
-
-def convertOCR(image):
-    text = pytesseract.image_to_string(image, lang="eng")  # Specify language if needed
-    print('finished')
-    return text
-'''
