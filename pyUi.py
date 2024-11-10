@@ -4,7 +4,7 @@ import main
 pyg.init()
 
 screen = pyg.display.set_mode((600, 600))
-background = pyg.image.load("UiDesign1.png").convert_alpha()
+background = pyg.image.load("u1'.png").convert_alpha()
 backgroundRect = background.get_rect(topleft=(0, 0))
 getBoundsRect = pyg.Rect(160, 450, 280, 60) 
 
