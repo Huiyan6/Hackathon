@@ -1,0 +1,16 @@
+#Drop down menu
+import tkinter as tkr
+
+n1 = ["English","French","Spanish"]
+
+master = tkr.Tk()
+master.geometry("200x100")
+master.title("Languages")
+
+tkr.Label(master,text="Basic Languages").grid(row=0)
+var = tkr.StringVar()
+set1=tkr.OptionMenu(master,var,*n1)
+set1.configure(font=("Times",25))
+set1.grid(row=1, column=0)
+
+tkr.mainloop()
