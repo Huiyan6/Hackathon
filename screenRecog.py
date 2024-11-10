@@ -42,7 +42,7 @@ class getImage:
     def screenshot(self):
         with mss.mss() as sct:
             monitor = {"top": self.y, "left": self.x, "width": self.width, "height": self.height}
-            time.sleep(3)
+            time.sleep(1)
             screenshot = sct.grab(monitor)
             img = np.array(screenshot)
 
