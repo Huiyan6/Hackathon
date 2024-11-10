@@ -10,3 +10,5 @@ This is a software application that can:
    - this is done by using image recognition to turn the words on your screen into a string and passing that string into a text-to-speech API
 2. Flip pages
    This is the hardest part of the project, and it can best be understood by looking at the code files.
+
+All files are in the Master Branch because I dont know how to add it to the main branch
